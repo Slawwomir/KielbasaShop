@@ -1,0 +1,231 @@
+{
+	"variables": [],
+	"info": {
+		"name": "KielbasaShop",
+		"_postman_id": "ffdda16c-a59a-e99a-69aa-42ae58848c2f",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Dostawa Swojskiej: amount=10",
+			"request": {
+				"url": "http://localhost:9090/kielbasas/2c4fa293-2145-488f-a452-c4e5efd6fb95",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"id\": \"2c4fa293-2145-488f-a452-c4e5efd6fb95\",\"title\": \"Swojska\",\"amount\": \"10\", \"price\": \"22.0\"}"
+				},
+				"description": "Ustawienie liczby dostępnych sztuk produktu"
+			},
+			"response": []
+		},
+		{
+			"name": "2 x Swojska | Zamówienie #0",
+			"request": {
+				"url": "http://localhost:9090/orders",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"kielbasas\": [{\"id\": \"2c4fa293-2145-488f-a452-c4e5efd6fb95\"},{\"id\": \"2c4fa293-2145-488f-a452-c4e5efd6fb95\"}]}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Śląska + Podwawelska | Zamówienie #1",
+			"request": {
+				"url": "http://localhost:9090/orders",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"kielbasas\": [{\"id\": \"e8e80511-9b67-4013-9aa1-ffb8cd531449\"},{\"id\": \"36b439bd-86fd-4464-a870-e9b66cc84dd4\"}]}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Śląska + Biała | Zamówienie #2",
+			"request": {
+				"url": "http://localhost:9090/orders",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"kielbasas\": [{\"id\": \"e8e80511-9b67-4013-9aa1-ffb8cd531449\"},{\"id\": \"15877953-84b7-4c41-96fb-e3b00c813f9d\"}]}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Biała + Podwawelska | Zamówienie #3",
+			"request": {
+				"url": "http://localhost:9090/orders",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"kielbasas\": [{\"id\": \"15877953-84b7-4c41-96fb-e3b00c813f9d\"},{\"id\": \"36b439bd-86fd-4464-a870-e9b66cc84dd4\"}]}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "/orders",
+			"request": {
+				"url": "http://localhost:9090/orders",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"title\": \"Śląska\",\n\t\"amount\": \"2\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "/kielbasas",
+			"request": {
+				"url": "http://localhost:9090/kielbasas",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"title\": \"Śląska\",\"amount\": \"2\"}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Swojska -> /kielbasas",
+			"request": {
+				"url": "http://localhost:9090/kielbasas",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"id\": \"2c4fa293-2145-488f-a452-c4e5efd6fb95\",\"title\": \"Swojska\",\"amount\": \"2\", \"price\": \"25.0\"}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Biała -> /kielbasas",
+			"request": {
+				"url": "http://localhost:9090/kielbasas",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"id\": \"15877953-84b7-4c41-96fb-e3b00c813f9d\",\"title\": \"Biała\",\"amount\": \"4\", \"price\": \"22.0\"}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Śląska -> /kielbasas",
+			"request": {
+				"url": "http://localhost:9090/kielbasas",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"id\": \"e8e80511-9b67-4013-9aa1-ffb8cd531449\",\"title\": \"Śląska\",\"amount\": \"2\", \"price\": \"16.0\"}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Podwawelska -> /kielbasas",
+			"request": {
+				"url": "http://localhost:9090/kielbasas",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"id\": \"36b439bd-86fd-4464-a870-e9b66cc84dd4\",\"title\": \"Podwawelska\",\"amount\": \"2\", \"price\": \"27.0\"}"
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
